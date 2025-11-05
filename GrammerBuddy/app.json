@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "ToDo",
+    "slug": "ToDo",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/list.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/list.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true,
+      "package": "com.awais_123.ToDo"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-font"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "3ab53701-2918-4bb0-ba51-c11f4e9a6cce"
+      }
+    }
+  }
+}
