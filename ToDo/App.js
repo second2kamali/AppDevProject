@@ -13,6 +13,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import appStyles from './styles/appStyles';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
+
+
 export default function App() {
   const [task, setTask] = useState('');
   const [tasks, setTasks] = useState([]);
