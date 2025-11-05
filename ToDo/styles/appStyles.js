@@ -33,7 +33,7 @@ export default StyleSheet.create({
     fontSize: 16,
     marginBottom: 10,
     fontFamily: 'Poppins_400Regular',
-    marginRight: 80,
+    marginRight: 16.5,
   },
   button: {
     backgroundColor: '#0057D9', // darker blue for better contrast
