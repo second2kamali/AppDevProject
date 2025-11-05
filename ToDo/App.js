@@ -19,7 +19,7 @@ export default function App() {
   const [editIndex, setEditIndex] = useState(null);
   const [deadline, setDeadline] = useState(null);
   const [showPicker, setShowPicker] = useState(false);
-  const [, forceUpdate] = useState(0); // to force re-render for dynamic days
+  const [, forceUpdate] = useState(0); // force re-render for dynamic days
 
   // Load tasks from storage
   useEffect(() => {
@@ -57,6 +57,7 @@ export default function App() {
       id: Date.now().toString(),
       text: task,
       deadline: deadline.toString(),
+      done: false, // new field for completion
     };
 
     if (editIndex !== null) {
@@ -75,6 +76,12 @@ export default function App() {
 
   const removeTask = (id) => {
     setTasks(tasks.filter((t) => t.id !== id));
+  };
+
+  const toggleComplete = (id) => {
+    setTasks(
+      tasks.map((t) => (t.id === id ? { ...t, done: !t.done } : t))
+    );
   };
 
   const calculateDaysRemaining = (deadline) => {
@@ -128,9 +135,7 @@ export default function App() {
         onPress={() => setShowPicker(true)}
       >
         <Text style={{ color: 'white', fontSize: 16 }}>
-          {deadline
-            ? `Deadline: ${deadline.toLocaleDateString()}`
-            : 'Set Deadline'}
+          {deadline ? `Deadline: ${deadline.toLocaleDateString()}` : 'Set Deadline'}
         </Text>
       </TouchableOpacity>
 
@@ -167,16 +172,30 @@ export default function App() {
 
       {/* Task List */}
       <FlatList
-        data={tasks}
+        data={[...tasks]
+          .sort((a, b) => a.done - b.done || new Date(a.deadline) - new Date(b.deadline))} // incomplete first, then by deadline
         keyExtractor={(item) => item.id}
         contentContainerStyle={{ paddingBottom: 100 }}
         renderItem={({ item, index }) => {
           const daysRemaining = calculateDaysRemaining(item.deadline);
 
           return (
-            <View style={appStyles.taskStyle}>
+            <View
+              style={{
+                ...appStyles.taskStyle,
+                backgroundColor: item.done ? 'rgba(200,200,200,0.4)' : 'rgba(255, 255, 255, 0.85)',width:320
+              }}
+            >
               <View>
-                <Text style={appStyles.taskFont}>{item.text}</Text>
+                <Text
+                  style={{
+                    ...appStyles.taskFont,
+                    textDecorationLine: item.done ? 'line-through' : 'none',
+                    color: item.done ? '#888' : '#222',
+                  }}
+                >
+                  {item.text}
+                </Text>
                 {item.deadline && (
                   <Text style={{ fontSize: 12, color: daysRemaining <= 2 ? 'red' : '#555' }}>
                     Deadline: {new Date(item.deadline).toLocaleDateString()} ({daysRemaining} days left)
@@ -185,6 +204,11 @@ export default function App() {
               </View>
 
               <View style={{ flexDirection: 'row', gap: 10 }}>
+                {/* Toggle Complete */}
+                <TouchableOpacity onPress={() => toggleComplete(item.id)}>
+                  <Text style={{ fontSize: 18 ,marginLeft:20}}>{item.done ? '✔️' : '⬜'}</Text>
+                </TouchableOpacity>
+
                 {/* Edit */}
                 <TouchableOpacity
                   onPress={() => {
