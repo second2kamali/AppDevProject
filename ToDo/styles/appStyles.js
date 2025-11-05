@@ -3,63 +3,74 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#8AB4F8', // soft blue background
-    alignItems: 'center',
+    backgroundColor: '#F5F7FA', // soft light background
     paddingTop: 60,
+    alignItems: 'center',
   },
   title: {
-    fontSize: 38,
-    color: '#ffffff', // white
-    marginBottom: 10,
+    fontSize: 36,
+    color: '#1A1F3B', // dark blue/black
+    marginBottom: 5,
     alignSelf: 'flex-start',
     paddingLeft: 20,
     fontFamily: 'Poppins_700Bold',
   },
   subTitle: {
-    fontSize: 22,
-    color: '#E0F2FF', // lighter soft blue, subtle contrast
+    fontSize: 18,
+    color: '#5B5F74', // grayish subtitle
     marginBottom: 20,
     alignSelf: 'flex-start',
     paddingLeft: 20,
     fontFamily: 'Poppins_600SemiBold',
   },
   input: {
-    width: 250,
-    backgroundColor: '#ffffff', // white input box
-    borderRadius: 10,
-    padding: 10,
-    borderWidth: 1,
-    borderColor: '#ccc',
+    width:250,
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    padding: 14,
     fontSize: 16,
-    marginBottom: 10,
+    marginRight:3,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
+    elevation: 2,
     fontFamily: 'Poppins_400Regular',
-    marginRight: 16.5,
+    borderWidth:0.3
+    
+    
   },
   button: {
-    backgroundColor: '#0057D9', // darker blue for better contrast
-    borderRadius: 10,
-    paddingVertical: 10,
+    backgroundColor: '#0057D9',
+    paddingVertical: 14,
     paddingHorizontal: 25,
-    marginBottom: 15,
-    marginTop: -53,
-    marginLeft: 260,
+    borderRadius: 12,
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowOffset: { width: 0, height: 4 },
+    shadowRadius: 6,
+    elevation: 4,
+    justifyContent: 'center',
+    alignItems: 'center',
+    
   },
   buttonText: {
-    color: '#ffffff', // white text
+    color: '#fff',
+    fontWeight: '600',
     fontSize: 16,
     fontFamily: 'Poppins_600SemiBold',
   },
   taskStyle: {
-    backgroundColor: 'rgba(255, 255, 255, 0.85)',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: '90%',
+    backgroundColor: '#fff',
     padding: 15,
     marginVertical: 6,
+    width: '90%',
     borderRadius: 12,
     shadowColor: '#000',
-    shadowOpacity: 0.15,
+    shadowOpacity: 0.1,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 4,
     elevation: 3,
@@ -69,12 +80,42 @@ export default StyleSheet.create({
     color: '#222',
     fontFamily: 'Poppins_500Medium',
   },
+  completedTask: {
+    textDecorationLine: 'line-through',
+    color: '#888',
+  },
   up: {
-    fontSize: 18,
+    fontSize: 20,
+    marginHorizontal: 6,
+    marginTop:14
   },
   cancelText: {
-    fontSize: 18,
-    color: '#ff3b30',
+    fontSize: 14,
+    color: '#FF3B30',
     fontFamily: 'Poppins_400Regular',
+  
+  },
+  badge: {
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 10,
+    fontSize: 12,
+    fontWeight: '600',
+    color: '#fff',
+    overflow: 'hidden',
+    alignSelf: 'flex-start',
+    marginTop: 4,
+  },
+  deadlineBadgeGreen: {
+    backgroundColor: '#4CAF50',
+  },
+  deadlineBadgeYellow: {
+    backgroundColor: '#FFC107',
+  },
+  deadlineBadgeRed: {
+    backgroundColor: '#FF3B30',
+  },
+  deadlineBadgeGray: {
+    backgroundColor: '#888',
   },
 });
