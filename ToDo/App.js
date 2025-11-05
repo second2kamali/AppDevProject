@@ -109,10 +109,10 @@ export default function App() {
           onPress={addTask}
           style={{
             backgroundColor: deadline ? '#0057D9' : '#ccc',
-            paddingVertical: 12,
+            paddingVertical: 15,
             paddingHorizontal: 18,
             borderRadius: 10,
-            marginTop: -10,
+            marginTop: -2,
           }}
           disabled={!deadline}
         >
@@ -206,7 +206,7 @@ export default function App() {
               <View style={{ flexDirection: 'row', gap: 10 }}>
                 {/* Toggle Complete */}
                 <TouchableOpacity onPress={() => toggleComplete(item.id)}>
-                  <Text style={{ fontSize: 18 ,marginLeft:20}}>{item.done ? '✔️' : '⬜'}</Text>
+                  <Text style={{ fontSize: 18 ,marginLeft:2,marginTop:15}}>{item.done ? '✔️' : '⬜'}</Text>
                 </TouchableOpacity>
 
                 {/* Edit */}
@@ -222,7 +222,7 @@ export default function App() {
 
                 {/* Delete */}
                 <TouchableOpacity onPress={() => removeTask(item.id)}>
-                  <Text style={{ fontSize: 18 }}>❌</Text>
+                  <Text style={{ fontSize: 18,marginTop:14 }}>❌</Text>
                 </TouchableOpacity>
               </View>
             </View>
