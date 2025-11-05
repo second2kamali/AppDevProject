@@ -4,11 +4,11 @@
     "slug": "ToDo",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/list.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/list.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
